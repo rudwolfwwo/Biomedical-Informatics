@@ -1,0 +1,22 @@
+#--------------------------------------------------------------------------------#
+# Information:																	 #
+# Creation of all data files from the source file: escherichia_coli.genome.fasta #
+# 																				 #
+# The command 'mv' stands for moving/renaming a files 							 #
+# -> output.txt will be renamed to ...											 #
+#--------------------------------------------------------------------------------#
+# TESTCASE 1: Run 'data_io' test
+python grader.py --input escherichia_coli.proteins.fasta --test data_io
+mv output.txt escherichia_coli.proteins.fasta
+
+# TESTCASE 2: Run 'orf_finder' test
+python grader.py --input escherichia_coli.genome.fasta --test orf_finder
+mv output.txt escherichia_coli.orfs.fasta
+
+# TESTCASE 3: Run 'transcription' test
+python grader.py --input escherichia_coli.orfs.fasta --test transcription
+mv output.txt escherichia_coli.rnas.fasta
+
+# TESTCASE 4: Run 'translation' test
+python grader.py --input escherichia_coli.rnas.fasta --test translation
+mv output.txt escherichia_coli.proteins.fasta
